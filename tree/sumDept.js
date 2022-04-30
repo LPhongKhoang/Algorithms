@@ -1,42 +1,221 @@
 /*
                     8
+               /           \
           4                   3
+       /      \             /     \ 
       7         2         1         9
+    /  \       /        /   \      /  \
     5   2     8         4   7     6   5       
 */
+
+
+class Node {
+  value; // int
+  left; // Node
+  right; // Node
+
+  constructor(value, left, right) {
+    this.value = value;
+    this.left = left;
+    this.right = right;
+  }
+
+  print() {
+    console.log('Node ' + value);
+  }
+}
+
+
+let total = 0;
 (function main() {
-  // const node1 = { val: 8, left: null, right: null };
-  // const node2 = { val: 9, left: null, right: null };
-  // const node3 = { val: 4, left: node1, right: node2 };
-  // const node5 = { val: 5, left: null, right: null };
-  // const node6 = { val: 2, left: node3, right: node5 };
 
-  // const node9 = { val: 6, left: null, right: null };
-  // const node12 = { val: 7, left: null, right: null };
-  // const node13 = { val: 3, left: node9, right: node12 };
+  const node13 = { val: 13, left: null, right: null };
 
-  // const node14 = { val: 1, left: node6, right: node13 };
+  const node14 = { val: 14, left: null, right: null };
 
-  const node1 = { val: 5, left: null, right: null };
-  const node2 = { val: 2, left: null, right: null };
-  const node3 = { val: 7, left: node1, right: node2 };
-  const node4 = { val: 8, left: null, right: null };
-  const node5 = { val: 2, left: node4, right: null };
-  const node6 = { val: 4, left: node3, right: node5 };
+  const node6 = { val: 6, left: null, right: node13 };
 
-  const node7 = { val: 4, left: null, right: null };
-  const node8 = { val: 7, left: null, right: null };
-  const node9 = { val: 1, left: node7, right: node8 };
-  const node10 = { val: 6, left: null, right: null };
-  const node11 = { val: 5, left: null, right: null };
-  const node12 = { val: 9, left: node10, right: node11 };
-  const node13 = { val: 3, left: node9, right: node12 };
+  const node7 = { val: 7, left: node14, right: null };
 
-  const node14 = { val: 8, left: node6, right: node13 };
+  const node3 = { val: 3, left: node6, right: node7 };
 
-  const res1 = sumDeptOfSubtrees(node14);
-  console.log(res1);
+  const node10 = { val: 10, left: null, right: null };
+
+  const node11 = { val: 11, left: null, right: null };
+
+  const node5 = { val: 5, left: node10, right: node11 };
+
+  const node8 = { val: 8, left: null, right: null };
+
+  const node9 = { val: 9, left: null, right: null };
+
+  const node4 = { val: 4, left: node8, right: node9 };
+  const node2 = { val: 2, left: node4, right: node5 };
+
+  const node1 = { val: 1, left: node2, right: node3 };
+
+
+  bfs_queue(node1);
+
+  
+
+  // const res1 = sumDeptOfSubtrees(root);
+  // console.log(res1);
+  // displayAllNodesOfTree_BSF(root);
+
+  // console.log('total = ', total);
+
 })();
+
+function dfs_stack(node) {
+  const stack = [node];
+
+  while(stack.length > 0) {
+    const currNode = stack.pop(); 
+    // 1, 2, 4, 8, 9 ; stack: [], [3], [3, 4], [3, 4, 9]
+
+    console.log('Node ', currNode.val); 
+    // 1, 2, 4, 8
+    // Check right
+    if(currNode.right) {
+      stack.push(currNode.right); 
+      // stack: [3], [3, 5], [3, 4, 9]
+    }
+
+    // check left
+    if(currNode.left) {
+      stack.push(currNode.left); 
+      // stack: [3, 2], [3, 5, 4], [3, 4, 9, 8]
+    }
+
+    
+  }
+
+}
+
+function bfs_queue(node) {
+  // queue: enqueue, dequeue
+
+  const queue = [node]; 
+
+  while(queue.length > 0) {
+    const currNode = queue.shift(); // dequeue
+  
+
+    console.log('Node ', currNode.val); 
+
+    // check left
+    if(currNode.left) {
+      queue.push(currNode.left); // enqueue
+    }
+
+
+    // Check right
+    if(currNode.right) {
+      queue.push(currNode.right); // enqueue
+    }
+    
+  }
+
+}
+
+function dfs3_pre_order(node) {
+  console.log('Node ' + node.val);
+  
+  if(node.left) {
+    dfs3_pre_order(node.left);
+  }
+
+  if(node.right) {
+    dfs3_pre_order(node.right);
+  }
+}
+
+function dfs3_in_order(node) {
+  
+  if(node.left) {
+    dfs3_in_order(node.left);
+  }
+
+  console.log('Node ' + node.val);
+
+  if(node.right) {
+    dfs3_in_order(node.right);
+  }
+}
+
+function dfs3_post_order(node) {
+  
+  if(node.left) {
+    dfs3_post_order(node.left);
+  }
+
+  if(node.right) {
+    dfs3_post_order(node.right);
+  }
+
+  console.log('Node ' + node.val);
+}
+
+// Depth first search (DFS)
+function displayAllNodesOfTree(root) {
+  console.log('Node: ' + root.val);
+  total += root.val;
+
+  if(root.left) {
+    displayAllNodesOfTree(root.left);
+  }
+
+  if(root.right) {
+    displayAllNodesOfTree(root.right);
+  }
+  
+}
+
+// Breath first search (BFS)
+// Quay lui - nhanh can : max: 18
+
+function displayAllNodesOfTree_BSF(root) {
+  // 8 , 4, 3, 7, 2, .....
+  // [8]
+  const queue = [root];
+
+  let node;
+
+  while(queue.length !== 0) {
+    // L1: [8]. L2: [4, 3]
+    node = queue.shift(); // [], node = 8. L2: [3], node: 4
+    console.log('Node: ', node.val);// 8, 4
+
+    if(node.left) {
+      queue.push(node.left); // [4], [3, 7]
+    }
+
+    if(node.right) {
+      queue.push(node.right); // [4, 3], [3, 7, 2]
+    }
+  }
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 function sumDept(root) {
   if (!root) return 0;

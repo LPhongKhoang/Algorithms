@@ -1,0 +1,93 @@
+[
+  {
+    "id": "0.1",
+    "serialNumber": "1",
+    "topic": "Overview"
+  },
+  {
+    "id": "0.2",
+    "serialNumber": "2",
+    "topic": "Inspection history and status"
+  },
+  {
+    "id": "1",
+    "serialNumber": "3",
+    "topic": "topic 1"
+  },
+  {
+    "id": "4",
+    "serialNumber": "3.1",
+    "topic": "topic 1 sub",
+    "parentId": "1"
+  },
+  {
+    "id": "6",
+    "serialNumber": "3.2",
+    "topic": "topic 1 sub2",
+    "parentId": "1"
+  },
+  {
+    "id": "5",
+    "serialNumber": "3.2.1",
+    "topic": "topic 1 sub1",
+    "parentId": "6"
+  },
+  {
+    "id": "50",
+    "serialNumber": "3.2.2",
+    "topic": "topic 1 sub1 (RT2)",
+    "parentId": "6"
+  },
+  {
+    "id": "8",
+    "serialNumber": "3.3",
+    "topic": "topic xyz",
+    "parentId": "1"
+  },
+  {
+    "id": "7",
+    "serialNumber": "3.3.1",
+    "topic": "topic abc",
+    "parentId": "8"
+  },
+  {
+    "id": "9",
+    "serialNumber": "3.3.1.1",
+    "topic": "topic mkl",
+    "parentId": "7"
+  },
+  {
+    "id": "3",
+    "serialNumber": "4",
+    "topic": "topic 3"
+  },
+  {
+    "id": "30",
+    "serialNumber": "5",
+    "topic": "topic 2 (RT2)"
+  },
+  {
+    "id": "80",
+    "serialNumber": "5.1",
+    "topic": "topic xyz",
+    "parentId": "30"
+  },
+  {
+    "id": "70",
+    "serialNumber": "5.1.1",
+    "topic": "topic abc",
+    "parentId": "80"
+  },
+  {
+    "id": "90",
+    "serialNumber": "5.1.1.1",
+    "topic": "topic mkl (RT2)",
+    "parentId": "70"
+  },
+  {
+    "id": "100",
+    "serialNumber": "5.2",
+    "topic": "topic xyz",
+    "parentId": "30"
+  }
+]

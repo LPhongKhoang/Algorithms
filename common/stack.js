@@ -4,17 +4,32 @@ class Stack {
 
 	push(x) {
 		this.arr.push(x);
-		length += 1;
+		this.length += 1;
 	}
 
 	pop() {
 		if(this.length === 0) return null;
 
-		this.arr[length-1];
-		length -= 1;
+		const lastEle = this.arr[this.length-1];
+		this.length -= 1;
+		return lastEle;
 	}
 
 	peek() {
-		
+		return this.arr[this.length-1];
 	}
 }
+
+function main(){
+	const s = new Stack();
+
+	s.push(1);
+	s.push(10);
+	s.push(14);
+
+	console.log(s.peek());
+	console.log(s.pop());
+	console.log(s.peek());
+}
+
+main();

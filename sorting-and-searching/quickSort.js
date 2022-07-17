@@ -47,11 +47,17 @@ function quickSortHelp(arr, left, right) {
 }
 
 function main() {
-  const arr = [5, 1, 3, 2];
+  const arr = [5, 1, 3, 8, 5, 3, 2, 1, 4, 7, 9, 13, 10, 4, 6, 2];
   /*
   5, 2, 3, 1
   */
+
+  console.log('arr', arr);
   quickSort(arr);
+
+  console.log('sorted arr', arr);
 }
+
+main();
 
 module.exports = quickSort;

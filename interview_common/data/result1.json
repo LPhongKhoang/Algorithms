@@ -1,0 +1,42 @@
+[
+	{
+		"websiteId": "4f8b36d00000000000000007",
+		"chats": 1622,
+		"missedChats": 5003
+	},
+	{
+		"websiteId": "4f8b36d00000000000000002",
+		"chats": 41,
+		"missedChats": 5
+	},
+	{
+		"websiteId": "4f8b36d00000000000000008",
+		"chats": 44,
+		"missedChats": 11
+	},
+	{
+		"websiteId": "4f8b36d00000000000000004",
+		"chats": 53,
+		"missedChats": 5
+	},
+	{
+		"websiteId": "4f8b36d00000000000000005",
+		"chats": 0,
+		"missedChats": 0
+	},
+	{
+		"websiteId": "4f8b36d00000000000000003",
+		"chats": 2609,
+		"missedChats": 171
+	},
+	{
+		"websiteId": "4f8b36d00000000000000006",
+		"chats": 0,
+		"missedChats": 4
+	},
+	{
+		"websiteId": "4f8b36d00000000000000001",
+		"chats": 1235,
+		"missedChats": 10
+	}
+]

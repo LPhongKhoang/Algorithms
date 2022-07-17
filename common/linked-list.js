@@ -15,8 +15,8 @@ class Node {
 }
 // -> Node1 -> Node2 (_)
 class LinkedList {
-	tail = null;
-	header = null; // Node
+	tail = null; // last Node
+	header = null; // first Node
 
 	insert(node) {
 		if(this.header === null) {
@@ -66,6 +66,9 @@ function main() {
 	linkList.insert(new Node(12));
 
 	linkList.print();
+
+	const exampleNode = linkList.getNode(10);
+	exampleNode.print();
 
 	// const checkNode = linkList.getNode(10);
 	// if(checkNode) {

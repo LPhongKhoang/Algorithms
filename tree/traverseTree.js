@@ -55,8 +55,8 @@ let total = 0;
   const node1 = { val: 1, left: node2, right: node3 };
 
 
-  bfs_queue(node1);
-
+  // bfs_queue(node1);
+  traverseTreeStackDFS(node1);
   
 
   // const res1 = sumDeptOfSubtrees(root);
@@ -66,6 +66,74 @@ let total = 0;
   // console.log('total = ', total);
 
 })();
+
+function traverseTreeStackDFS(root) {
+  const stack = [root]; // init stack
+
+  // Loop until stack is empty
+  while(stack.length > 0) {
+    const node = stack.pop(); // pop
+
+    console.log('Node: ', node.val); // visit node
+
+    if(node.right) {
+      stack.push(node.right); // push
+    }
+
+    if(node.left) {
+      stack.push(node.left); // push
+    }
+  }
+}
+
+function traverseTreeBFS(root) {
+  const queue = [root]; // init queue
+
+  // Loop until queue is empty
+  while(queue.length > 0) {
+    const node = queue.shift(); // dequeue
+
+    console.log('Node: ', node.val); // visit node
+
+    if(node.left) {
+      queue.push(node.left); // enqueue
+    }
+
+    if(node.right) {
+      queue.push(node.right); // enqueue
+    }
+  }
+
+}
+
+function traverseTreePreOrder(root) {
+  if(!root) return;
+
+  console.log('Node: ', root.val);
+
+  traverseTreePreOrder(root.left);
+  traverseTreePreOrder(root.right);
+
+}
+
+function traverseTreeInOrder(root) {
+  if(!root) return;
+
+  traverseTreeInOrder(root.left);
+  console.log('Node: ', root.val);
+  traverseTreeInOrder (root.right);
+
+}
+
+function traverseTreePostOrder(root) {
+  if(!root) return;
+
+  traverseTreePostOrder(root.left);
+  traverseTreePostOrder (root.right);
+  console.log('Node: ', root.val);
+
+}
+
 
 function dfs_stack(node) {
   const stack = [node];

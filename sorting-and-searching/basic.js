@@ -71,6 +71,37 @@ function insertionSort(arr) {
 }
 
 
+// Function merge 2 sorted arrays
+function merge2SortedArr(arr1, arr2) {
+	const arr = [];
+	let i = 0,
+		j = 0;
+
+	while (i < arr1.length && j < arr2.length) {
+		if (arr1[i] < arr2[j]) {
+			arr.push(arr1[i]);
+			i++;
+		} else {
+			arr.push(arr2[j]);
+			j++;
+		}
+	}
+
+	while (i < arr1.length) {
+		arr.push(arr1[i]);
+		i++;
+	}
+
+	while (j < arr2.length) {
+		arr.push(arr2[j]);
+		j++;
+	}
+
+	return arr;
+}
+
+
+
 (function main() {
 	// const arr = [3, 4, 1, 2, 3, 8, 7, 9, 6, 7];
 	// selectionSort(arr);

@@ -27,7 +27,7 @@ function mergeSortHelp(arr, left, right) {
  * @param {number[]} arr
  * @param {number} left
  * @param {number} right
- * @description first arr is arr[left: mid]. Second arr is arr[mid+1, right]
+ * @description first sorted arr is arr[left: mid]. Second sorted arr is arr[mid+1, right]
  */
 function merge2SortedArr(arr, left, right) {
   const mid = Math.floor((left + right) / 2);

@@ -1,6 +1,8 @@
 /**
  * @param {number[]} height
  * @return {number}
+ * @description https://leetcode.com/problems/container-with-most-water/
+ * @class 2 pointers - medium
  */
 var maxArea = function(height) {
   const n = height.length;

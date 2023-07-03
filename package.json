@@ -1,0 +1,13 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "description": "1. Deeply understand the problem 2. Come up with good example (Test case):",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

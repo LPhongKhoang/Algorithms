@@ -1,4 +1,4 @@
-import MyQueue from '../common/queue.js';
+import MyQueue, { LinkedList } from '../common/queue.js';
 
 /**
  * @param {character[][]} grid
@@ -13,7 +13,7 @@ var numIslands = function(grid) {
       // Check if the cell is land and not visited
       if(grid[i][j] === '1' && !visited.has(`${i}-${j}`)) {
         count++;
-        bfsLands(grid, i, j, visited);
+        bfsLandsLinkedList(grid, i, j, visited);
       }
     }  
   }
@@ -23,6 +23,28 @@ var numIslands = function(grid) {
 
 var bfsLands = function(grid, i, j, visited) {
   const q = new MyQueue();
+  q.enqueue([i, j]);
+  visited.add(`${i}-${j}`);
+
+  while(!q.isEmpty()) {
+    const [x, y] = q.dequeue();
+    const neighbors = getNeighbors(grid, x, y);
+    for(let i = 0; i < neighbors.length; i++) {
+      const [x, y] = neighbors[i];
+
+      // Check if the neighbor is valid and not visited
+      if(grid[x][y] === '1' && !visited.has(`${x}-${y}`)) {
+        q.enqueue([x, y]);
+        visited.add(`${x}-${y}`);
+      }
+    }
+  }
+
+  return;
+}
+
+var bfsLandsLinkedList = function(grid, i, j, visited) {
+  const q = new LinkedList();
   q.enqueue([i, j]);
   visited.add(`${i}-${j}`);
 
@@ -87,7 +109,7 @@ function main() {
     ["1","1","0","0","0"],
     ["0","0","0","0","0"]
   ];
-  console.log('Result is', numIslands(grid));
+  console.log('Result is', numIslands(grid)); // 1
   
   grid = [
     ["1","1","0","0","0"],
@@ -95,7 +117,7 @@ function main() {
     ["0","0","1","0","0"],
     ["0","0","0","1","1"]
   ];
-  console.log('Result is', numIslands(grid));
+  console.log('Result is', numIslands(grid)); // 3
 
   grid = [
     ["1","1","1"],
@@ -103,7 +125,7 @@ function main() {
     ["1","1","1"]
   ]
 
-  console.log('Result is', numIslands(grid));
+  console.log('Result is', numIslands(grid)); // 1
 };
 
 main();

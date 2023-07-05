@@ -42,6 +42,109 @@ export default class MyQueue {
 
 }
 
+export class NodeLL {
+  /**
+   * 
+   * @param {number|string} value 
+   */
+  constructor(value) {
+    /**
+     * @type {number|string}
+     */
+    this.value = value;
+
+    /**
+     * @type {NodeLL}
+     */
+    this.next = null;
+  }
+}
+export class LinkedList {
+  constructor() {
+    /**
+     * @type {NodeLL}
+     */
+    this.head = null;
+
+    /**
+     * @type {NodeLL}
+     */
+    this.tail = null;
+
+    this._size = 0;
+  }
+
+
+  get size() {
+    return this._size;
+  }
+
+  isEmpty() {
+    return this.head === null;
+  }
+
+
+  /**
+   * 
+   * @param {number|string} value 
+   */
+  append(value) {
+    const node = new NodeLL(value);
+
+    if(this.head === null) {
+      this.head = node;
+      this.tail = node;
+    }else {
+      this.tail.next = node;
+      this.tail = node;
+    }
+    this._size++;
+  }
+
+  /**
+   * 
+   * @param {number|string} x 
+   * @returns 
+   */
+  getNode(x) {
+    let currNode = this.head;
+
+    while(!!currNode) {
+      if(currNode.value === x) {
+        return currNode;
+      }else {
+        currNode = currNode.next; // di den node tiep theo
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * 
+   * @param {number|string} value 
+   */
+  enqueue(value) {
+    this.append(value);
+  }
+
+  dequeue() {
+    if(this.head === null) {
+      return;
+    }
+
+    const node = this.head;
+    this.head = this.head.next;
+
+    if(this.head === null) {
+      this.tail = null;
+    }
+
+    this._size--;
+    return node.value;
+  }
+}
+
 // function test() {
 //   const q = new Queue();
 //   console.log(q.size, 'size')

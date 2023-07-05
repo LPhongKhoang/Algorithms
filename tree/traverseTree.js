@@ -8,8 +8,33 @@
     5   2     8         4   7     6   5       
 */
 
+/*
+tree 1: 
+                    1
+               /           \
+          2                   3
+       /      \             /     \ 
+      4         5         6         7
+    /  \       / \          \      / 
+   8    9     10 11          13   14   
+   
 
-class Node {
+create binary tree like this
+                    1
+                /           \
+              2               3
+            /   \           /   \
+          4       5       6       7
+        /   \   /   \           /   \
+      8      9 10    11        13    14
+    /  \   /  \   /  \       /  \   /  \
+    15  16 17  18 19  20     21  22 23  24
+
+
+*/
+
+
+export class NodeTree {
   value; // int
   left; // Node
   right; // Node
@@ -25,42 +50,72 @@ class Node {
   }
 }
 
+export const tree1 = {
+  val: 10,
+  left: {
+    val: 5,
+    left: {
+      val: 3,
+      left: {
+        val: 3,
+      },
+      right: {
+        val: -2,
+      },
+    },
+    right: {
+      val: 2,
+      right: {
+        val: 1,
+      },
+    },
+  },
+  right: {
+    val: -3,
+    right: {
+      val: 11,
+    },
+  },
+};
+
+const node13 = { val: 13, left: null, right: null };
+
+const node14 = { val: 14, left: null, right: null };
+
+const node6 = { val: 6, left: null, right: node13 };
+
+const node7 = { val: 7, left: node14, right: null };
+
+const node3 = { val: 3, left: node6, right: node7 };
+
+const node10 = { val: 10, left: null, right: null };
+
+const node11 = { val: 11, left: null, right: null };
+
+const node5 = { val: 5, left: node10, right: node11 };
+
+const node8 = { val: 8, left: null, right: null };
+
+const node9 = { val: 9, left: null, right: null };
+
+const node4 = { val: 4, left: node8, right: node9 };
+const node2 = { val: 2, left: node4, right: node5 };
+
+const node1 = { val: 1, left: node2, right: node3 };
+
+export const root = node1;
 
 let total = 0;
+
 (function main() {
-
-  const node13 = { val: 13, left: null, right: null };
-
-  const node14 = { val: 14, left: null, right: null };
-
-  const node6 = { val: 6, left: null, right: node13 };
-
-  const node7 = { val: 7, left: node14, right: null };
-
-  const node3 = { val: 3, left: node6, right: node7 };
-
-  const node10 = { val: 10, left: null, right: null };
-
-  const node11 = { val: 11, left: null, right: null };
-
-  const node5 = { val: 5, left: node10, right: node11 };
-
-  const node8 = { val: 8, left: null, right: null };
-
-  const node9 = { val: 9, left: null, right: null };
-
-  const node4 = { val: 4, left: node8, right: node9 };
-  const node2 = { val: 2, left: node4, right: node5 };
-
-  const node1 = { val: 1, left: node2, right: node3 };
-
-
   // bfs_queue(node1);
-  traverseTreeStackDFS(node1);
+  // traverseTreeStackDFS(node1);
   
 
-  // const res1 = sumDeptOfSubtrees(root);
-  // console.log(res1);
+  // console.log('sumDeptOfSubtrees(root)', sumDeptOfSubtrees(root));
+
+  sumPathDFS(tree1, 0);
+
   // displayAllNodesOfTree_BSF(root);
 
   // console.log('total = ', total);
@@ -84,6 +139,27 @@ function traverseTreeStackDFS(root) {
       stack.push(node.left); // push
     }
   }
+}
+
+// Write a function to find sum of each paths in a binary tree
+
+
+
+function sumPathDFS(node, sum) {
+  if(!node) return;
+
+  sum += node.val;
+
+  if(!node.left && !node.right) {
+    console.log('sum = ', sum);
+    return;
+  }
+  
+  sumPathDFS(node.left, sum);
+  sumPathDFS(node.right, sum);
+  
+  sum -= node.val;
+
 }
 
 function traverseTreeBFS(root) {

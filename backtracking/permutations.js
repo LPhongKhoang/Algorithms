@@ -63,7 +63,7 @@ function genPermutationOffArr(arr) {
  */
 function myTryArr(k, arr, curr, res, currSet) {
   for (let i = 0; i < arr.length; i++) {
-    const key = i + ":" + arr[i];
+    const key = i; // i + ":" + arr[i];
     if (!currSet.has(key)) {
       curr[k] = arr[i];
       currSet.add(key);
@@ -81,6 +81,6 @@ function myTryArr(k, arr, curr, res, currSet) {
 }
 
 (function main() {
-  // genPermutationOffArr([1, 2, 3]);
-  genPermutation(2);
+  genPermutationOffArr([10, 4, 9]);
+  // genPermutation(2);
 })();
